@@ -1,0 +1,269 @@
+/* src/renderer/styles/StickerTab.css */
+.sticker-tab {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.sticker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .sticker-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.sticker-header h4 {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+.dark-mode .sticker-header h4 {
+  color: #e5e7eb;
+}
+
+.sticker-info {
+  font-size: 10px;
+  color: #6b7280;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin: 0;
+}
+
+.dark-mode .sticker-info {
+  color: #9ca3af;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* 스티커 관리 버튼 */
+.sticker-management {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.sticker-manage-btn {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.sticker-manage-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sticker-manage-btn.lock-btn {
+  background: #fef3c7;
+  border-color: #fbbf24;
+  color: #92400e;
+}
+
+.sticker-manage-btn.lock-btn:hover {
+  background: #fde68a;
+}
+
+.sticker-manage-btn.delete-btn-all {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+.sticker-manage-btn.delete-btn-all:hover {
+  background: #fee2e2;
+}
+
+.dark-mode .sticker-manage-btn.lock-btn {
+  background: rgba(251, 191, 36, 0.2);
+  border-color: #fbbf24;
+  color: #fde68a;
+}
+
+.dark-mode .sticker-manage-btn.lock-btn:hover {
+  background: rgba(251, 191, 36, 0.3);
+}
+
+.dark-mode .sticker-manage-btn.delete-btn-all {
+  background: rgba(220, 38, 38, 0.2);
+  border-color: #dc2626;
+  color: #fca5a5;
+}
+
+.dark-mode .sticker-manage-btn.delete-btn-all:hover {
+  background: rgba(220, 38, 38, 0.3);
+}
+
+.sticker-upload {
+  margin-bottom: 16px;
+}
+
+.upload-button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.upload-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+}
+
+.sticker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  flex: 1;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 20px;
+  color: #9ca3af;
+}
+
+.empty-state p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.empty-hint {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.sticker-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.dark-mode .sticker-item {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sticker-item:hover {
+  border-color: rgba(102, 126, 234, 0.5);
+  transform: scale(1.05);
+}
+
+.sticker-item.selected {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.2);
+}
+
+.sticker-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.delete-sticker-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.sticker-item:hover .delete-sticker-btn {
+  opacity: 1;
+}
+
+.delete-sticker-btn:hover {
+  background: rgba(220, 38, 38, 1);
+  transform: scale(1.1);
+}
+
+.selected-sticker-info {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(var(--primary-rgb), 0.1);
+  border-radius: 8px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.selected-sticker-info p {
+  margin: 4px 0;
+  font-size: 13px;
+  color: #374151;
+}
+
+.dark-mode .selected-sticker-info p {
+  color: #d1d5db;
+}
+
+.hint-text {
+  font-size: 11px !important;
+  color: #6b7280 !important;
+  font-style: italic;
+}
+
+.dark-mode .hint-text {
+  color: #9ca3af !important;
+}
+
+/* 스크롤바 */
+.sticker-tab::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sticker-tab::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sticker-tab::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.dark-mode .sticker-tab::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
