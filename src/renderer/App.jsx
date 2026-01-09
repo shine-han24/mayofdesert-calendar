@@ -437,7 +437,7 @@ function App() {
                   <div className="opacity-slider-container">
                     <input
                       type="range"
-                      min="60"
+                      min="00"
                       max="100"
                       step="5"
                       value={bgOpacity}
